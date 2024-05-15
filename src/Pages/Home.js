@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Button from "./Custom_Components/Button";
+import Button from "../Custom_Components/Button";
 
 const Home = ({handleRegister}) => {
     // const navRegister = () =>{

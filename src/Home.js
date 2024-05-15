@@ -2,17 +2,17 @@ import { Link } from "react-router-dom";
 import Button from "./ui/Button";
 
 const Home = ({handleRegister}) => {
-    const navRegister = () =>{
-        handleRegister();
-    }
+    // const navRegister = () =>{
+    //     handleRegister();
+    // }
  return(
     <div>
     <center>   
         <h1>
             Welcome!
         </h1>
-       <Link to={"/register"}>
-       <Button className='btn-success' onClick={navRegister}>
+       <Link to={"/register/:id"}>
+       <Button className='btn-success'>
         Register
        </Button>
        </Link>

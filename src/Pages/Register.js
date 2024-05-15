@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,useParams} from 'react-router-dom';
 import Button from '../ui/Button';
 import Input from '../ui/Input';
 
-const Register = ({ addUser, users, updateUser, uuid }) => {
+const Register = ({ addUser, users, updateUser }) => {
     const navigate = useNavigate();
+    const {id} = useParams();
     const [formData, setFormData] = useState({
         name: '',
         age: '',
@@ -13,13 +14,13 @@ const Register = ({ addUser, users, updateUser, uuid }) => {
     });
 
     useEffect(() => {
-        if (uuid !== null) {
-            const user = users.find((user) => user.id === parseInt(uuid));
+        if (id !== ':id') {
+            const user = users.find((user) => user.id === parseInt(id));
             if (user) {
                 setFormData(user);
             }
         }
-    }, [uuid, users]);
+    }, [id, users]);
 
     const handleCancel = () => {
         formData.id ? navigate('/view') : navigate('/Home');
@@ -68,7 +69,6 @@ const Register = ({ addUser, users, updateUser, uuid }) => {
                                         id="name"
                                         name="name"
                                         value={formData.name}
-                                        // onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                         onChange={handleChange}
                                         required
                                     />

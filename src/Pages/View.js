@@ -3,11 +3,11 @@
 import {  Link, useNavigate } from "react-router-dom";
 import Button from "../ui/Button";
 
-const View = ({users,deleteUser,setId}) => {
+const View = ({users,deleteUser}) => {
   const navigate = useNavigate();
  const handleEdit = (uuid) => {
-  setId(uuid);
-  navigate('/register', {state:{uuid}});
+  // setId(uuid);
+  navigate(`/register/${uuid}`);
  }
   
   console.log(users);

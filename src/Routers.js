@@ -9,7 +9,7 @@ import UserInfo from "./Pages/UserInfo"
 
 const Routers = () => {  
   const [usersData, setUsersData] = useState([]);
-  const [uuid, setuuid] = useState(null);
+  // const [uuid, setuuid] = useState(null);
   const [userId, setUserId] = useState(null);
   
   const addUser = (user) => {
@@ -34,9 +34,9 @@ const Routers = () => {
     setUsersData(updatedUsers); 
     console.log(updatedUsers);
   };
-  const setId = (uuid) => {
-    setuuid(uuid);
-  };
+  // const setId = (uuid) => {
+  //   setuuid(uuid);
+  // };
   const generatedId = () => {
     return Math.floor(Math.random() * 1000) + 1;
   };
@@ -48,10 +48,10 @@ const Routers = () => {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home handleRegister = {handleRegister} />} />
         <Route
-          path="/register"
-          element={<Register addUser={addUser}  users={usersData} updateUser={updateUser} uuid = {uuid}/>}
+          path="/register/:id"
+          element={<Register addUser={addUser}  users={usersData} updateUser={updateUser}/>}
         />
-        <Route path="/view" element={<View users={usersData} setId = {setId} deleteUser={deleteUser} />} />
+        <Route path="/view" element={<View users={usersData} deleteUser={deleteUser} />} />
         <Route path="/Users" element={<Users setUserId={setUserId} />} />
         <Route path="/UserInfo" element={<UserInfo userId={userId} />} />
        </Routes>

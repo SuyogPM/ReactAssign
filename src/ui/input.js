@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Input = ({ type, placeholder, className, style, onChange, value }) => {
+const Input = ({ type, placeholder, className,name, style, onChange, value }) => {
     const inputStyle = {
         padding: '10px',
         border: '1px solid #ccc',
@@ -15,6 +15,7 @@ const Input = ({ type, placeholder, className, style, onChange, value }) => {
             placeholder={placeholder}
             className={className || 'form-control'}
             style={inputStyle}
+            name = {name}
             value={value}
             onChange={onChange} // Use the onChange prop directly
         />
@@ -26,6 +27,7 @@ Input.propTypes = {
     placeholder: PropTypes.string,
     className: PropTypes.string,
     style: PropTypes.object,
+    name : PropTypes.any,
     value: PropTypes.any,
     onChange: PropTypes.func,
 };

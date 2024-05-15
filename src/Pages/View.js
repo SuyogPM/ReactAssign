@@ -1,7 +1,7 @@
 
 // import { getUsers , deleteUser} from "../UserData/userData";
 import {  Link, useNavigate } from "react-router-dom";
-import Button from "../ui/button";
+import Button from "../ui/Button";
 
 const View = ({users,deleteUser,setId}) => {
   const navigate = useNavigate();

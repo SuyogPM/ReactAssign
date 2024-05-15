@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from '../ui/button';
-import Input from '../ui/input';
+import Button from '../ui/Button';
+import Input from '../ui/Input';
 
 const Register = ({ addUser, users, updateUser, uuid }) => {
     const navigate = useNavigate();
@@ -68,13 +68,14 @@ const Register = ({ addUser, users, updateUser, uuid }) => {
                                         id="name"
                                         name="name"
                                         value={formData.name}
-                                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                        // onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                        onChange={handleChange}
                                         required
                                     />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="age">Age:</label>
-                                    <input
+                                    <Input
                                         type="number"
                                         className="form-control"
                                         id="age"
@@ -86,7 +87,7 @@ const Register = ({ addUser, users, updateUser, uuid }) => {
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="dob">Date of Birth:</label>
-                                    <input
+                                    <Input
                                         type="date"
                                         className="form-control"
                                         id="dob"
@@ -98,7 +99,7 @@ const Register = ({ addUser, users, updateUser, uuid }) => {
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="subject">Subject:</label>
-                                    <input
+                                    <Input
                                         type="text"
                                         className="form-control"
                                         id="subject"

@@ -17,7 +17,7 @@ const Input = ({ type, placeholder, className,name, style, onChange, value }) =>
             style={inputStyle}
             name = {name}
             value={value}
-            onChange={onChange} // Use the onChange prop directly
+            onChange={onChange} 
         />
     );
 };

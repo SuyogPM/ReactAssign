@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "../ui/Button";
+import Button from "../Custom_Components/Button";
 
 const Users = ({ setUserId }) => {
     const [userData, setUserData] = useState([]);

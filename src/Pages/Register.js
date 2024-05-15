@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate ,useParams} from 'react-router-dom';
-import Button from '../ui/Button';
-import Input from '../ui/Input';
+import Button from '../Custom_Components/Button';
+import Input from '../Custom_Components/Input';
 
 const Register = ({ addUser, users, updateUser }) => {
     const navigate = useNavigate();

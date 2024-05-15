@@ -18,9 +18,6 @@ const Routers = () => {
     console.log(newUser);
   };
 
-   const handleRegister = () =>{
-    setId(null)
-  }
   const updateUser = (userId, updatedUserData) => {
     const updatedUsers = usersData.map((user) =>
       user.id === userId ? { ...user, ...updatedUserData } : user
@@ -34,9 +31,7 @@ const Routers = () => {
     setUsersData(updatedUsers); 
     console.log(updatedUsers);
   };
-  // const setId = (uuid) => {
-  //   setuuid(uuid);
-  // };
+
   const generatedId = () => {
     return Math.floor(Math.random() * 1000) + 1;
   };
@@ -46,7 +41,7 @@ const Routers = () => {
    
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<Home handleRegister = {handleRegister} />} />
+        <Route path="/home" element={<Home/>} />
         <Route
           path="/register/:id"
           element={<Register addUser={addUser}  users={usersData} updateUser={updateUser}/>}

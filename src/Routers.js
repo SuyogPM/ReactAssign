@@ -9,7 +9,6 @@ import UserInfo from "./Pages/UserInfo"
 
 const Routers = () => {  
   const [usersData, setUsersData] = useState([]);
-  // const [uuid, setuuid] = useState(null);
   const [userId, setUserId] = useState(null);
   
   const addUser = (user) => {

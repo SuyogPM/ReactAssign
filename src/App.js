@@ -1,9 +1,8 @@
-
-import Layout from "./Layout";
+import Routers from "./Routers";
 const App = () => {
     return (
       <>
-        <Layout/>
+        <Routers/>
       </>
     );
   };

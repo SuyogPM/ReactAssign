@@ -1,14 +1,24 @@
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Button from "../Custom_Components/Button";
 
 const UserInfo = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
 
-  if (!state) {
+  const { user, pageId } = state;
+
+  if (!state || !state.user) {
     alert("User Not Found!");
-    navigate("/User");
+    navigate(`/Users?pageId=${pageId}`);
+    return null;
   }
+
+  
+
+  const handleBack = () => {
+    navigate(`/Users?pageId=${pageId}`);
+  };
 
   return (
     <div className="container mt-5">
@@ -26,7 +36,7 @@ const UserInfo = () => {
         <div className="row no-gutters">
           <div className="col-md-4">
             <img
-              src={state.avatar}
+              src={user.avatar}
               alt="User Avatar"
               className="card-img"
               style={{
@@ -39,15 +49,15 @@ const UserInfo = () => {
           <div className="col-md-8">
             <div className="card-body p-3">
               <h5 className="card-title">
-                {state.first_name} {state.last_name}
+                {user.first_name} {user.last_name}
               </h5>
-              <p className="card-text">ID: {state.id}</p>
-              <p className="card-text">Email: {state.email}</p>
+              <p className="card-text">ID: {user.id}</p>
+              <p className="card-text">Email: {user.email}</p>
             </div>
             <div className="card-footer p-3 text-right">
-              <Link to="/Users">
-                <Button className="btn-secondary">Back</Button>
-              </Link>
+              <Button className="btn-secondary" onClick={handleBack}>
+                Back
+              </Button>
             </div>
           </div>
         </div>

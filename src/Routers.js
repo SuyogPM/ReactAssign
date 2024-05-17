@@ -8,56 +8,16 @@ import UserInfo from "./Pages/UserInfo";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const Routers = () => {
-  const [usersData, setUsersData] = useState([]);
+
   const [userId, setUserId] = useState(null);
-
-  const addUser = (user) => {
-    const newUser = { ...user, id: generatedId() };
-    setUsersData([...usersData, newUser]);
-    console.log(newUser);
-  };
-
-  const updateUser = (userId, updatedUserData) => {
-    const updatedUsers = usersData.map((user) =>
-      user.id === userId ? { ...user, ...updatedUserData } : user
-    );
-    setUsersData(updatedUsers);
-    console.log(
-      "updated user data :",
-      updatedUsers.find((user) => user.id === userId)
-    );
-  };
-
-  const deleteUser = (userId) => {
-    const updatedUsers = usersData.filter((user) => user.id !== userId);
-    setUsersData(updatedUsers);
-    console.log(updatedUsers);
-  };
-
-  const generatedId = () => {
-    return Math.floor(Math.random() * 1000) + 1;
-  };
-
   return (
     <>
       <Router>
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
-          <Route
-            path="/register/:id"
-            element={
-              <Register
-                addUser={addUser}
-                users={usersData}
-                updateUser={updateUser}
-              />
-            }
-          />
-          <Route
-            path="/view"
-            element={<View users={usersData} deleteUser={deleteUser} />}
-          />
+          <Route path="/register/:id" element={<Register />} />
+          <Route path="/view" element={<View />} />
           <Route path="/Users" element={<Users setUserId={setUserId} />} />
           <Route path="/UserInfo" element={<UserInfo userId={userId} />} />
         </Routes>

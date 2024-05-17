@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { addData } from "../Redux/Action/fetchUserAction";
 import Button from "../Custom_Components/Button";
 
-const Users = ({ setUserId }) => {
-    const [userData, setUserData] = useState([]);
+const Users = () => {
+    
     const [hoveredRow, setHoveredRow] = useState(null);
+    const dispatch = useDispatch();
+    const user =  useSelector((state) => state.fetchData)
     const navigate = useNavigate();
 
     useEffect(() => {
         fetch('https://reqres.in/api/users?page=2')
             .then(response => response.json())
-            .then(data => setUserData(data.data))
+            .then(data => dispatch(addData(data.data)))
             .catch(error => console.error('Error fetching data:', error));
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
-        console.log(userData);
-    }, [userData]);
+        console.log(user);
+    }, [user]);
 
     const handleClick = (user) => {
-        setUserId(user);
-        navigate("/UserInfo");
+        navigate("/UserInfo",{state:user});
     };
 
     return (
@@ -40,7 +43,7 @@ const Users = ({ setUserId }) => {
                         </tr>
                     </thead>
                     <tbody style={{ textAlign: 'center' }}>
-                        {userData.map((user, index) => (
+                        {user.map((user, index) => (
                             <tr
                                 key={user.id}
                                 style={{

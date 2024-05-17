@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Pages/Home";
 import Register from "./Pages/Register";
@@ -9,7 +8,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 const Routers = () => {
 
-  const [userId, setUserId] = useState(null);
   return (
     <>
       <Router>
@@ -18,8 +16,8 @@ const Routers = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/register/:id" element={<Register />} />
           <Route path="/view" element={<View />} />
-          <Route path="/Users" element={<Users setUserId={setUserId} />} />
-          <Route path="/UserInfo" element={<UserInfo userId={userId} />} />
+          <Route path="/Users" element={<Users  />} />
+          <Route path="/UserInfo" element={<UserInfo/>} />
         </Routes>
       </Router>
     </>

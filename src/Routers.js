@@ -7,7 +7,6 @@ import UserInfo from "./Pages/UserInfo";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const Routers = () => {
-
   return (
     <>
       <Router>
@@ -16,8 +15,8 @@ const Routers = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/register/:id" element={<Register />} />
           <Route path="/view" element={<View />} />
-          <Route path="/Users" element={<Users  />} />
-          <Route path="/UserInfo" element={<UserInfo/>} />
+          <Route path="/Users" element={<Users />} />
+          <Route path="/UserInfo" element={<UserInfo />} />
         </Routes>
       </Router>
     </>

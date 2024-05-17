@@ -1,4 +1,8 @@
-import { ADD_USER , DELETE_USER,UPDATE_USER } from "../Constants/userActionConstant";
+import {
+  ADD_USER,
+  DELETE_USER,
+  UPDATE_USER,
+} from "../Constants/userActionConstant";
 
 export const addUser = (usersData) => ({
   type: ADD_USER,

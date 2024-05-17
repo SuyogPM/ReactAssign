@@ -1,8 +1,8 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { deleteUser } from '../Redux/Action/userActions';
-import { Link, useNavigate } from 'react-router-dom';
-import Button from '../Custom_Components/Button';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteUser } from "../Redux/Action/userActions";
+import { Link, useNavigate } from "react-router-dom";
+import Button from "../Custom_Components/Button";
 
 const View = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const View = () => {
 
   const handleDelete = (userId) => {
     dispatch(deleteUser(userId));
-    alert('Record Delete Successfully!');
+    alert("Record Delete Successfully!");
   };
 
   if (!usersData) {
@@ -29,9 +29,9 @@ const View = () => {
       </center>
       <br />
       <center>
-        <table className="table table-bordered" style={{ width: '80%' }}>
+        <table className="table table-bordered" style={{ width: "80%" }}>
           <thead className="thead-light">
-            <tr style={{ backgroundColor: 'grey', textAlign: 'center' }}>
+            <tr style={{ backgroundColor: "grey", textAlign: "center" }}>
               <th>ID</th>
               <th>Name</th>
               <th>Age</th>
@@ -40,21 +40,24 @@ const View = () => {
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody style={{ textAlign: 'center' }}>
+          <tbody style={{ textAlign: "center" }}>
             {usersData.map((user) => (
-              <tr key={user.id} style={{ borderBottom: '1px solid #ddd' }}>
-                <td style={{ marginLeft: '10px' }}>{user.id}</td>
+              <tr key={user.id} style={{ borderBottom: "1px solid #ddd" }}>
+                <td style={{ marginLeft: "10px" }}>{user.id}</td>
                 <td>{user.name}</td>
                 <td>{user.age}</td>
                 <td>{user.dob}</td>
                 <td>{user.subject}</td>
                 <td>
-                  <Button className="btn-success" onClick={() => handleEdit(user.id)}>
+                  <Button
+                    className="btn-success"
+                    onClick={() => handleEdit(user.id)}
+                  >
                     Edit
                   </Button>
                   <Button
                     className="btn-danger"
-                    style={{ marginLeft: '10px' }}
+                    style={{ marginLeft: "10px" }}
                     onClick={() => handleDelete(user.id)}
                   >
                     Delete
@@ -64,9 +67,12 @@ const View = () => {
             ))}
           </tbody>
         </table>
-        <div className="d-flex justify-content-end" style={{ marginRight: '100px' }}>
+        <div
+          className="d-flex justify-content-end"
+          style={{ marginRight: "100px" }}
+        >
           <Link to="/home">
-            {' '}
+            {" "}
             <Button className="btn-secondary">Back</Button>
           </Link>
         </div>
